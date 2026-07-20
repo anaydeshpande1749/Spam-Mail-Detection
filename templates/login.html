@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gmail Login</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Segoe UI, Arial, sans-serif;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+        }
+        .card {
+            width: 420px;
+            background: #111827;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
+        }
+        h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #9ca3af;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid #374151;
+            background: #1f2937;
+            color: white;
+            margin-bottom: 18px;
+            font-size: 15px;
+        }
+        input:focus {
+            outline: none;
+            border: 1px solid #6366f1;
+        }
+        .remember {
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .remember input {
+            width: auto;
+            margin-right: 10px;
+            margin-bottom: 0;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #6366f1;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: .3s;
+        }
+        button:hover {
+            background: #4f46e5;
+        }
+        a {
+            text-decoration: none;
+        }
+        .back {
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            color: #9ca3af;
+        }
+        .back:hover {
+            color: white;
+        }
+        .note {
+            margin-top: 25px;
+            color: #d1d5db;
+            font-size: 13px;
+            line-height: 1.5;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h2>Login to Gmail</h2>
+    <p>Enter your Gmail and Google App Password</p>
+    <form method="POST">
+        <input type="email" name="gmail" placeholder="example@gmail.com" required>
+        <input type="password" name="password" placeholder="Google App Password" required>
+        <div class="remember">
+            <input type="checkbox" name="remember">
+            <label>Remember Me</label>
+        </div>
+        <button type="submit">Check Recent Mail</button>
+    </form>
+    <a href="/" class="back">← Back to Home</a>
+    <div class="note">
+        <b>How to get App Password?</b><br><br>
+        1. Enable Two-Step Verification on your Google account.<br><br>
+        2. Open Google Account → Security → App Passwords.<br><br>
+        3. Generate a Mail App Password.<br><br>
+        4. Paste the 16-character password above.
+    </div>
+</div>
+</body>
+</html>

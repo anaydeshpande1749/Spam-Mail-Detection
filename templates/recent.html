@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Recent Mail Analysis</title>
+
+    {% if live %}
+    <meta http-equiv="refresh" content="10">
+    {% endif %}
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Segoe UI,Arial,sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#0f172a,#1e293b);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:40px;
+        }
+
+        .card{
+            width:780px;
+            background:#111827;
+            color:white;
+            border-radius:18px;
+            padding:35px;
+            box-shadow:0 20px 45px rgba(0,0,0,.45);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:15px;
+        }
+
+        .live-text{
+            text-align:center;
+            color:#cbd5e1;
+            margin-bottom:25px;
+            line-height:1.7;
+        }
+
+        .status{
+            margin-bottom:25px;
+            padding:15px;
+            border-radius:10px;
+            text-align:center;
+            background:#1d4ed8;
+            color:white;
+            font-weight:bold;
+        }
+
+        .label{
+            margin-top:18px;
+            margin-bottom:8px;
+            color:#9ca3af;
+            font-weight:bold;
+        }
+
+        .box{
+            background:#1f2937;
+            padding:15px;
+            border-radius:10px;
+            line-height:1.6;
+            white-space:pre-wrap;
+        }
+
+        .spam{
+            margin-top:25px;
+            padding:16px;
+            border-radius:10px;
+            background:#7f1d1d;
+            color:#fecaca;
+            text-align:center;
+            font-size:20px;
+            font-weight:bold;
+        }
+
+        .ham{
+            margin-top:25px;
+            padding:16px;
+            border-radius:10px;
+            background:#14532d;
+            color:#bbf7d0;
+            text-align:center;
+            font-size:20px;
+            font-weight:bold;
+        }
+
+        .error{
+            margin-top:20px;
+            padding:16px;
+            border-radius:10px;
+            background:#7f1d1d;
+            color:white;
+            text-align:center;
+        }
+
+        .buttons{
+            margin-top:35px;
+            display:flex;
+            justify-content:space-between;
+        }
+
+        button{
+            border:none;
+            padding:14px 24px;
+            border-radius:10px;
+            color:white;
+            cursor:pointer;
+            font-size:15px;
+        }
+
+        .next{
+            background:#6366f1;
+        }
+
+        .logout{
+            background:#dc2626;
+        }
+
+        button:hover{
+            opacity:.9;
+        }
+
+        a{
+            text-decoration:none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+{% if live %}
+
+<h1>🔴 Live Spam Analysis</h1>
+
+<p class="live-text">
+Monitoring your Gmail Inbox<br>
+Checking latest email every <b>10 seconds</b>
+</p>
+
+<div class="status">
+🟢 LIVE MODE ENABLED
+</div>
+
+{% else %}
+
+<h1>Recent Gmail Analysis</h1>
+
+{% endif %}
+
+
+{% if error %}
+
+<div class="error">
+
+{{ error }}
+
+</div>
+
+{% else %}
+
+<div class="label">
+From
+</div>
+
+<div class="box">
+{{ sender }}
+</div>
+
+<div class="label">
+Subject
+</div>
+
+<div class="box">
+{{ subject }}
+</div>
+
+<div class="label">
+Email Content
+</div>
+
+<div class="box">
+{{ body }}
+</div>
+
+{% if result=="Spam" %}
+
+<div class="spam">
+🚨 SPAM EMAIL DETECTED
+</div>
+
+{% else %}
+
+<div class="ham">
+✅ SAFE EMAIL
+</div>
+
+{% endif %}
+
+{% endif %}
+
+
+<div class="buttons">
+
+{% if live %}
+
+<a href="/recent">
+<button class="next">
+Stop Live Analysis
+</button>
+</a>
+
+{% else %}
+
+<a href="/live">
+<button class="next">
+Start Live Analysis
+</button>
+</a>
+
+{% endif %}
+
+<a href="/logout">
+<button class="logout">
+Logout
+</button>
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
