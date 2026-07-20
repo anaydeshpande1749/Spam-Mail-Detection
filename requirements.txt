@@ -9,3 +9,5 @@ pandas==2.2.3
 
 IMAPClient==3.0.1
 pyzmail36==1.0.5
+
+spacy==3.8.11
